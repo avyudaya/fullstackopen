@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/spa/new_note
+    activate server
+    server-->>browser: Status code of 201
+    deactivate server
+
+    Note right of browser: The note formData is sent to the server which is added
+    Note right of browser: A callback is callled that adds newly created note to the dom which is shown in the view
+    Note right of browser: If the ready state is 4 and status code is 201 the responsetext is console logged
+  
